@@ -46,4 +46,8 @@ public class Person { //должен быть пустой конструкто�
     public void setAge(int age) {
         this.age = age;
     }
+
+    public String toString () {
+        return this.name + " , " + this.age;
+    }
 }
