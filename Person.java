@@ -1,15 +1,13 @@
 package ru.anna.RestApiConsumer.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity //класс связан с бд
 @Table(name = "Person") //название подходящей таблицы
 public class Person { //должен быть пустой конструктор и поле айди
     @Id // primary key
     @Column(name = "id") // записываем название подходящего столбца бд
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //хибер не думает о генерации айди(тип генерации)
     private int id;
     @Column(name = "name")
     private String name;
@@ -19,7 +17,7 @@ public class Person { //должен быть пустой конструкто�
     public Person () {
     }
 
-    public Person(int id, String name, int age) {
+    public Person (String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
